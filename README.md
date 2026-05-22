@@ -92,6 +92,9 @@ Además, se generaron gráficas de rendimiento y comparaciones de complejidad te
 
 <img width="702" height="476" alt="image" src="https://github.com/user-attachments/assets/e11b14e7-4e55-44c3-a77d-ac6cf0d561cc" />
 
+## Animación:
+
+<img width="640" height="480" alt="output" src="https://github.com/user-attachments/assets/f10844a2-02a5-49fd-9b61-6318a21d035c" />
 
 ---
 
