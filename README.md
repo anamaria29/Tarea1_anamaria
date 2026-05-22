@@ -141,18 +141,20 @@ Para reproducir los experimentos se debe:
 
 # Resultados
 
-Los resultados experimentales muestran un crecimiento acelerado del tiempo de ejecución conforme aumenta el tamaño del tablero.
+Los experimentos realizados permiten observar cómo cambia el tiempo de ejecución del Juego de la Vida conforme aumenta el tamaño del tablero. Para el benchmark se utilizaron tableros desde 32×32 hasta 1024×1024. Midiendo el tiempo requerido para ejecutar la simulación. Los resultados se pueden observar en la Tabla 1. A partir de estos datos se puede observar que el tiempo de ejecución aumenta conforme crece el número de celdas del tablero. Esto ocurre porque el algoritmo debe recorrer cada celda y evaluar sus vecinos, en cada iteración.
 
-La simulación mantiene tiempos bajos para tamaños pequeños y medianos, pero para tamaños grandes como 1024x1024 el tiempo supera los 3 segundos por ejecución.
+Las visualizaciones de patrones como el Glider y el Blinker, mostradas en el Gráfico 1, permiten verificar que las reglas del autómata celular fueron implementadas correctamente. Ya que, los patrones evolucionan de la forma esperada. En el caso del Glider, se observa un desplazamiento diagonal continuo a través del tablero, mientras que el Blinker alterna periódicamente entre estados horizontales y verticales. Esto confirma que las reglas de nacimiento, supervivencia y muerte de las celdas funcionan adecuadamente en cada iteración de la simulación.
 
-La gráfica log-log muestra que el comportamiento observado se aproxima a una complejidad cercana a O(n²), lo cual es consistente con el hecho de que el algoritmo debe recorrer todas las celdas del tablero en cada iteración.
+En la Gráfica 3, correspondiente a la comparación con curvas teóricas, se observa que la curva experimental tiene un comportamiento muy similar a la complejidad O(n2). Esto es consistente con la naturaleza del problema, ya que al aumentar el tamaño del tablero, también aumenta la cantidad de celdas que deben de ser evaluadas en cada iteración. Puesto que, el algoritmo revisa el estado y los vecinos de cada celda, el tiempo de ejecución crece de manera proporcional al número total de celdas. Esto último, explica la tendencia observada en los resultados.
+
+La Gráfica 4 en escala log-log, permite analizar con mayor claridad el crecimiento asintótico del algoritmo. En esta visualización, la pendiente de la curva experimental sigue una tendencia cercana a la curva cuadrática. Esto confirma que el tiempo de ejecución aumenta conforma crece el tablero. Este comportamiento evidencia que el costo computacional del algoritmo incrementa para los tableros de mayor tamaño.
 
 ---
 
 # Conclusiones
 
-- El Juego de la Vida puede implementarse eficientemente utilizando NumPy.
-- El tiempo de ejecución depende directamente de la cantidad de celdas del tablero.
-- La complejidad observada experimentalmente se aproxima a O(n²).
-- Las visualizaciones permiten observar claramente la evolución de los patrones.
-- El uso de notebooks facilita la reproducción de experimentos y análisis de rendimiento.
+En este proyecto se logró implementar correctamente el Juego de la Vida de Conway utilizando Python y NumPy. Permitiendo simular la evolución de distintos patrones clásicos dentro de un autómata celular. Las visualizaciones y animaciones generadas facilitaron la comprensión del comportamiento dinámico del sistema, además de permitir verificar que las reglas de evolución fueron aplicadas correctamente en cada iteración.  
+
+Los experimentos de rendimiento mostraron que el tiempo de ejecución aumenta conforme crece el tamaño del tablero, debido a que el algoritmo debe de recorrer y evaluar cada celda, para calcular el siguiente estado. A partir de las gráficas obtenidas, especialmente la gráfica log-log, se observó que el comportamiento experimental presenta una tendencia cercana a la complejidad O(n2). Este resultado es consistente con el crecimiento cuadrático del número de celdas en la matriz.
+
+Asimismo, el uso de NumPy permitió mejorar significativamente la eficiencia de la simulación. En comparación con una implementación completamente manual, basada en listas y ciclos tradicionales. Sin embargo, también se evidenció que para los tableros más grandes, el costo computacional y el consumo de memoria aumentan considerablemente. Esto limita el rendimiento de la simulación y demuestra la importancia de aplicar técnicas de optimización y herramientas especializadas para simulaciones de mayor escala.
